@@ -24,6 +24,9 @@ Write a simple UNIX command interpreter.
 - Using pipes to connect commands: ($ cat file.txt | grep keyword)
 
 ## Man page
+```
+
+```
 
 ## Flowchart 
 ![Flowchart](https://github.com/gofastpanam/holbertonschool-simple_shell/blob/main/simple_shell_flowchart.png)
