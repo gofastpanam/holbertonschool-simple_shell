@@ -26,12 +26,9 @@ Write a simple UNIX command interpreter.
 ## Man page
 
 ## Flowchart 
-
+![Flowchart](https://github.com/gofastpanam/holbertonschool-simple_shell/blob/main/simple_shell_flowchart.png)
 
 Created by : 
-- [Enzo De Freitas]
-(https://github.com/psychohight/) &
-- [Anthony Cointre] (https://github.com/AnthonyCointre/) &
-- [Benjamin Jacob] 
-(https://github.com/gofastpanam/)
-
+- [Enzo De Freitas] (https://github.com/psychohight/)
+- [Anthony Cointre] (https://github.com/AnthonyCointre/)
+- [Benjamin Jacob] (https://github.com/gofastpanam/)
