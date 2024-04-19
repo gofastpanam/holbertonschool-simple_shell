@@ -1,7 +1,7 @@
 # C - Simple Shell
 
 ## Description
-Write a simple UNIX command interpreter.
+A simple shell is a command line interpreter; it is a computer program that provides a user interface to access certain operating system services.
 
 ## Project specification
 - No more than 5 functions per file.
@@ -11,12 +11,15 @@ Write a simple UNIX command interpreter.
 - Use system calls only when you need to.
 
 ## Fonctionnalités
-- Execution of built-in system commands (such as cd, pwd, exit).
+- Execution of built-in system commands such as 
+    + cd
+    + pwd
+    + ls 
+    + exit
 - Execution of external commands using execvp.
 - Handling of input/output redirection (>, <, >>).
 - Handling of pipes (|) for redirecting the output of one command to the input of another.
-- Support for termination signals (Ctrl+C).
-
+- Support for termination signals **Ctrl+C**.
 
 ## Exemples d'utilisation
 - Running an external command: ($ls -l)
@@ -24,8 +27,9 @@ Write a simple UNIX command interpreter.
 - Using pipes to connect commands: ($ cat file.txt | grep keyword)
 
 ## Man page
+The man page is a file wich explains in detail how Simple Shell works.
 ```
-
+$ man ./man_1_simple_shell
 ```
 
 ## Flowchart 
