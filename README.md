@@ -16,22 +16,20 @@ Write a simple UNIX command interpreter.
 - Use system calls only when you need to.
 
 ## Exemples
-- Example of error with sh:
+- Example of error with lss:
 ```
-$ echo "qwerty" | /bin/sh
-/bin/sh: 1: qwerty: not found
-$ echo "qwerty" | /bin/../bin/sh
-/bin/../bin/sh: 1: qwerty: not found
-$
+root@LAPTOP-DCFNNBS8:~/holbertonschool-simple_shell# ./shell
+#cisfun$ lss
+Error: No such file or directory
+#cisfun$ 
 ```
 
-- Same error with your program hsh:
+- Example of succes with ls:
 ```
-$ echo "qwerty" | ./hsh
-./hsh: 1: qwerty: not found
-$ echo "qwerty" | ./././hsh
-./././hsh: 1: qwerty: not found
-$
+root@LAPTOP-DCFNNBS8:~/holbertonschool-simple_shell# ./shell
+#cisfun$ ls
+AUTHORS  README.md  interactive_mode.c  main.c  main.h  man_1_simple_shell  shell  shell_functions.c  simple_shell_flowchart.png
+#cisfun$ 
 ```
 
 ## Man page
