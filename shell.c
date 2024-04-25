@@ -42,7 +42,16 @@ void interactive_mode(void)
 				exit(EXIT_FAILURE);
 			}
 		}
-		input[strcspn(input, "\n")] = '\0';
+		size_t i;
+
+		for (i = 0; i < bytes_read; i++)
+		{
+			if (input[i] == '\n')
+			{
+				input[i] = '\0';
+				break;
+			}
+		}
 		if (run_command(input) == -1)
 		{
 			free(input);
@@ -64,7 +73,17 @@ void non_interactive_mode(void)
 
 	while ((bytes_read = getline(&input, &input_size, stdin)) != -1)
 	{
-		input[strcspn(input, "\n")] = '\0';
+		size_t i;
+
+		for (i = 0; i < bytes_read; i++)
+		{
+			if (input[i] == '\n')
+			{
+				input[i] = '\0';
+				break;
+			}
+		}
+
 		if (run_command(input) == -1)
 		{
 			free(input);
