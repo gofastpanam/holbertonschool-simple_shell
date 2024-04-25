@@ -36,45 +36,44 @@ $
 
 ## Man page
 ```
-.TH man 3 "18 april 2024" "simple_shell man page"
-.SH NAME
+man 3 "18 april 2024" "simple_shell man page"
+NAME
 hsh - Simple Shell: command line interpreter
 
-.SH SYNOPSIS FOR INTERACTIVE MODE
+SYNOPSIS FOR INTERACTIVE MODE
 Type ./hsh to show prompt Command: [command] [options]
 
-.SH SYNOPSIS NON INTERACTIVE 
+SYNOPSIS NON INTERACTIVE 
 echo "[command] [options]" | ./hsh
 
-.SH DESCRIPTION
+DESCRIPTION
 simple_shell (compiled as hsh) is a recreation of the sh command interpreter ( A shell is a command language 
 interpreter that executes commands read from the standard input or from a file.), made using C language.
 This version can execute any comman that points to an executable file, files with the full direction
 (for instance "/bin/ls") and files that can be found in the PATH environment variable (for instance "ls").
 All the execution that are not built-ins are made using the execve C function.
 
-.SH USER INPUT
+USER INPUT
 Once a user inputs a command and hits enter, the shell performs the following actions:
 
-.br
 1. Displaying the prompt.
-.br
+
 2. Reading the command.
-.br
+
 3. Command interpretation.
-.br
+
 4. Command execution.
-.br
+
 5. Waiting for the command to finish.
 
-.SH SEARCH FOR COMMAND
+SEARCH FOR COMMAND
 When locating a command, the shell looks for a built-in command by that name.
 If a built-in command is not found, the shell searches for the command in the PATH.
 
-.SH EXECUTE COMMAND
+EXECUTE COMMAND
 Commands are executed in a child process of the main process.
 
-.SH EXAMPLES
+EXAMPLES
 
 interactive mode :
 root@LAPTOP-DCFNNBS8:~/holbertonschool-simple_shell# ./shell
@@ -90,15 +89,16 @@ non interactive mode :
 root@LAPTOP-DCFNNBS8:~/holbertonschool-simple_shell# echo "/bin/ls" | ./shell
 AUTHORS  README.md  man_1_simple_shell  shell  shell.c  shell.h  simple_shell_flowchart.png
 root@LAPTOP-DCFNNBS8:~/holbertonschool-simple_shell# 
-.SH BUILT-IN
+
+BUILT-IN
 This version includes 2 built-ins (functions that are not found on PATH).
 env : built-in prints all the environment variables. 
 exit : ends the shell.
 
-.SH RETURN VALUE
+RETURN VALUE
 0 if success and 1 if error.
 
-.SH Author
+Author
 ```
 
 ## Flowchart 
