@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* interactive_mode - Run the shell in interactive mode
+* interactive_mode - Run the shell in interactive mode.
 */
 void interactive_mode(void)
 {
@@ -49,7 +49,7 @@ void interactive_mode(void)
 }
 
 /**
-* non_interactive_mode - Run the shell in non-interactive mode
+* non_interactive_mode - Run the shell in non-interactive mode.
 */
 void non_interactive_mode(void)
 {

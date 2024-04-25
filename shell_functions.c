@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* display_prompt - Display the shell prompt
+* display_prompt - Display the shell prompt.
 */
 void display_prompt(void)
 {
@@ -13,9 +13,10 @@ void display_prompt(void)
 }
 
 /**
-* run_command - Execute a shell command
-* @input: The command to execute
-* Return: 0 on success, -1 on failure
+* run_command - Execute a shell command.
+* @input: The command to execute.
+*
+* Return: 0 on success, -1 on failure.
 */
 int run_command(char *input)
 {
