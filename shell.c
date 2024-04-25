@@ -24,6 +24,8 @@ void interactive_mode(void)
 
 	while (1)
 	{
+		size_t i;
+
 		display_prompt();
 		bytes_read = getline(&input, &input_size, stdin);
 
@@ -42,9 +44,7 @@ void interactive_mode(void)
 				exit(EXIT_FAILURE);
 			}
 		}
-		size_t i;
-
-		for (i = 0; i < bytes_read; i++)
+		for (i = 0; i < (size_t)bytes_read; i++)
 		{
 			if (input[i] == '\n')
 			{
@@ -52,6 +52,7 @@ void interactive_mode(void)
 				break;
 			}
 		}
+
 		if (run_command(input) == -1)
 		{
 			free(input);
@@ -75,7 +76,7 @@ void non_interactive_mode(void)
 	{
 		size_t i;
 
-		for (i = 0; i < bytes_read; i++)
+		for (i = 0; i < (size_t)bytes_read; i++)
 		{
 			if (input[i] == '\n')
 			{
