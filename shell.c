@@ -57,15 +57,22 @@ void interactive_mode(void)
 */
 void non_interactive_mode(void)
 {
-	char input[1024];
+	char *input = NULL;
 
-	while (scanf("%1023[^\n]%*c", input) == 1)
+	size_t input_size = 0;
+	ssize_t bytes_read;
+
+	while ((bytes_read = getline(&input, &input_size, stdin)) != -1)
 	{
+		input[strcspn(input, "\n")] = '\0';
 		if (run_command(input) == -1)
 		{
+			free(input);
 			exit(EXIT_FAILURE);
 		}
 	}
+
+	free(input);
 }
 
 /**
