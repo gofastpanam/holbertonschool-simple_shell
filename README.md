@@ -37,7 +37,6 @@ $
 ## Man page
 ```
 .TH man 3 "18 april 2024" "simple_shell man page"
-```
 .SH NAME
 hsh - Simple Shell: command line interpreter
 
@@ -78,25 +77,19 @@ Commands are executed in a child process of the main process.
 .SH EXAMPLES
 
 interactive mode :
-```
 root@LAPTOP-DCFNNBS8:~/holbertonschool-simple_shell# ./shell
 #cisfun$ ls
 AUTHORS  README.md  man_1_simple_shell  shell  shell.c  shell.h  simple_shell_flowchart.png
 #cisfun$ 
-```
 error situation :
-```
 root@LAPTOP-DCFNNBS8:~/holbertonschool-simple_shell# ./shell
 #cisfun$ lss
 Error: No such file or directory
 #cisfun$ 
-```
 non interactive mode :
-```
 root@LAPTOP-DCFNNBS8:~/holbertonschool-simple_shell# echo "/bin/ls" | ./shell
 AUTHORS  README.md  man_1_simple_shell  shell  shell.c  shell.h  simple_shell_flowchart.png
 root@LAPTOP-DCFNNBS8:~/holbertonschool-simple_shell# 
-```
 .SH BUILT-IN
 This version includes 2 built-ins (functions that are not found on PATH).
 env : built-in prints all the environment variables. 
