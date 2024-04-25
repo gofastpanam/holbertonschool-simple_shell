@@ -19,12 +19,10 @@ void interactive_mode(void)
 {
 	char input[1024];
 
-	char *newline_pos;
-
 	while (1)
 	{
 		display_prompt();
-		if (scanf("%[^\n]%*c", input) == EOF)
+		if (fgets(input, sizeof(input), stdin) == NULL)
 		{
 			if (feof(stdin))
 			{
@@ -37,13 +35,7 @@ void interactive_mode(void)
 				exit(EXIT_FAILURE);
 			}
 		}
-		newline_pos = strchr(input, '\n');
-
-		if (newline_pos != NULL)
-		{
-			*newline_pos = '\0';
-		}
-
+		input[strcspn(input, "\n")] = '\0';
 		if (run_command(input) == -1)
 		{
 			exit(EXIT_FAILURE);
