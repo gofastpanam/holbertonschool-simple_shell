@@ -122,6 +122,7 @@ int run_command(char *input)
 	argv[argc] = NULL;
 	if (argc > 0 && strcmp(argv[0], "exit") == 0)
 	{
+		free(input);
 		exit(EXIT_SUCCESS);
 	}
 	pid = fork();
@@ -139,6 +140,7 @@ int run_command(char *input)
 		}
 		execvp(argv[0], argv);
 		perror("Error");
+		free(input);
 		exit(EXIT_FAILURE);
 	}
 	else
