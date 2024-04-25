@@ -17,43 +17,50 @@ void display_prompt(void)
 */
 void interactive_mode(void)
 {
-	char input[1024];
+	char *input = NULL;
+
+	size_t input_size = 0;
+	ssize_t bytes_read;
 
 	while (1)
 	{
 		display_prompt();
-		if (fgets(input, sizeof(input), stdin) == NULL)
+		bytes_read = getline(&input, &input_size, stdin);
+
+		if (bytes_read == -1)
 		{
 			if (feof(stdin))
 			{
 				printf("\n");
+				free(input);
 				exit(EXIT_SUCCESS);
 			}
 			else
 			{
 				perror("Error");
+				free(input);
 				exit(EXIT_FAILURE);
 			}
 		}
 		input[strcspn(input, "\n")] = '\0';
 		if (run_command(input) == -1)
 		{
+			free(input);
 			exit(EXIT_FAILURE);
 		}
 	}
+	free(input);
 }
 
 /**
 * non_interactive_mode - Run the shell in non-interactive mode
-* @command: The command to execute
 */
 void non_interactive_mode(void)
 {
 	char input[1024];
 
-	while (fgets(input, sizeof(input), stdin) != NULL)
+	while (scanf("%1023[^\n]%*c", input) == 1)
 	{
-		input[strcspn(input, "\n")] = '\0';
 		if (run_command(input) == -1)
 		{
 			exit(EXIT_FAILURE);
