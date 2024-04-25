@@ -132,7 +132,6 @@ int run_command(char *input)
 	return (0);
 }
 
-
 /**
 * main - Entry point of the shell program
 * @argc: Number of command-line arguments
