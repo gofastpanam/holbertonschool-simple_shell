@@ -76,19 +76,19 @@ Commands are executed in a child process of the main process.
 EXAMPLES
 
 interactive mode :
-root@LAPTOP-DCFNNBS8:~/holbertonschool-simple_shell# ./shell
+~/holbertonschool-simple_shell# ./shell
 #cisfun$ ls
 AUTHORS  README.md  man_1_simple_shell  shell  shell.c  shell.h  simple_shell_flowchart.png
 #cisfun$ 
 error situation :
-root@LAPTOP-DCFNNBS8:~/holbertonschool-simple_shell# ./shell
+~/holbertonschool-simple_shell# ./shell
 #cisfun$ lss
 Error: No such file or directory
-#cisfun$ 
+#cisfun$
 non interactive mode :
-root@LAPTOP-DCFNNBS8:~/holbertonschool-simple_shell# echo "/bin/ls" | ./shell
+~/holbertonschool-simple_shell# echo "/bin/ls" | ./shell
 AUTHORS  README.md  man_1_simple_shell  shell  shell.c  shell.h  simple_shell_flowchart.png
-root@LAPTOP-DCFNNBS8:~/holbertonschool-simple_shell# 
+~/holbertonschool-simple_shell# 
 
 BUILT-IN
 This version includes 2 built-ins (functions that are not found on PATH).
@@ -99,6 +99,9 @@ RETURN VALUE
 0 if success and 1 if error.
 
 Author
+Anthony COINTRE
+Benjamin JACOB
+Enzo DE FREITAS
 ```
 
 ## Flowchart 
