@@ -123,8 +123,7 @@ int run_command(char *input)
     
     if (argc == 0)
     {
-        fprintf(stderr, "No command entered.\n");
-        return -1;
+        return(0);
     }
 	if (argc > 0 && strcmp(argv[0], "exit") == 0)
 	{
