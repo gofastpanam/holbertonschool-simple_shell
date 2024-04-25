@@ -36,9 +36,9 @@ $
 
 ## Man page
 ```
-##man 3 "18 april 2024" "simple_shell man page"
+man 3 "18 april 2024" "simple_shell man page"
 
-#NAME
+NAME
 hsh - Simple Shell: command line interpreter
 
 SYNOPSIS FOR INTERACTIVE MODE
