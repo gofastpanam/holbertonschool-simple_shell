@@ -10,7 +10,7 @@
 
 void display_prompt(void);
 void interactive_mode(void);
-void non_interactive_mode(char *command);
+void non_interactive_mode(void);
 int run_command(char *input);
 
 #endif /*SIMPLE_SHELL_H_*/
