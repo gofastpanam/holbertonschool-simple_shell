@@ -104,7 +104,7 @@ Enzo DE FREITAS
 ```
 
 ## Flowchart 
-![Flowchart](https://github.com/gofastpanam/holbertonschool-simple_shell/blob/main/simple_shell_flowchart.png)
+![Flowchart](https://github.com/gofastpanam/holbertonschool-simple_shell/blob/main/simple-shell.drawio.png)
 
 Created by : 
 - [Anthony Cointre](https://github.com/AnthonyCointre/)
