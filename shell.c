@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* display_prompt - Display the command prompt.
+* display_prompt - Display the shell prompt
 */
 void display_prompt(void)
 {
@@ -10,7 +10,7 @@ void display_prompt(void)
 }
 
 /**
-* interactive_mode - Enter interactive mode for the shell.
+* interactive_mode - Run the shell in interactive mode
 */
 void interactive_mode(void)
 {
@@ -24,7 +24,7 @@ void interactive_mode(void)
 			if (feof(stdin))
 			{
 				printf("\n");
-				break;
+				exit(EXIT_SUCCESS);
 			}
 			else
 			{
@@ -41,8 +41,8 @@ void interactive_mode(void)
 }
 
 /**
-* non_interactive_mode - Enter non-interactive mode for the shell.
-* @command: The command to execute.
+* non_interactive_mode - Run the shell in non-interactive mode
+* @command: The command to execute
 */
 void non_interactive_mode(char *command)
 {
@@ -53,21 +53,18 @@ void non_interactive_mode(char *command)
 }
 
 /**
-* run_command - Execute the command entered by the user.
-* @input: The command to execute.
-*
-* Return: 0 on success, -1 on failure.
+* run_command - Execute a shell command
+* @input: The command to execute
+* Return: 0 on success, -1 on failure
 */
 int run_command(char *input)
 {
 	pid_t pid;
 	int status;
-
 	char *argv[64];
-
 	char *token;
-
 	int argc = 0;
+	char path[256];
 
 	token = strtok(input, " ");
 	while (token != NULL && argc < 63)
@@ -76,7 +73,8 @@ int run_command(char *input)
 		token = strtok(NULL, " ");
 	}
 	argv[argc] = NULL;
-
+	if (argc > 0 && strcmp(argv[0], "exit") == 0)
+		exit(EXIT_SUCCESS);
 	pid = fork();
 	if (pid == -1)
 	{
@@ -85,29 +83,29 @@ int run_command(char *input)
 	}
 	else if (pid == 0)
 	{
-		if (execve(argv[0], argv, NULL) == -1)
+		if (getenv("PATH") == NULL)
 		{
-			perror("Error");
-			exit(EXIT_FAILURE);
+			strcpy(path, "/bin:/usr/bin");
+			setenv("PATH", path, 1);
 		}
+		execvp(argv[0], argv);
+		perror("Error");
+		exit(EXIT_FAILURE);
 	}
 	else
-	{
 		if (waitpid(pid, &status, 0) == -1)
 		{
 			perror("Error");
 			return (-1);
 		}
-	}
 	return (0);
 }
 
 /**
-* main - Entry point for the shell program.
-* @argc: The number of command-line arguments.
-* @argv: An array containing the command-line arguments.
-*
-* Return: Always returns 0 on success.
+* main - Entry point of the shell program
+* @argc: Number of command-line arguments
+* @argv: Array of command-line arguments
+* Return: 0 on success, 1 on failure
 */
 int main(int argc, char *argv[])
 {
@@ -124,6 +122,5 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Usage: %s [command]\n", argv[0]);
 		return (1);
 	}
-
 	return (0);
 }
