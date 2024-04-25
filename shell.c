@@ -120,9 +120,15 @@ int run_command(char *input)
 		token = strtok(NULL, " ");
 	}
 	argv[argc] = NULL;
+    
+    if (argc == 0)
+    {
+        fprintf(stderr, "No command entered.\n");
+        return -1;
+    }
 	if (argc > 0 && strcmp(argv[0], "exit") == 0)
 	{
-		free(input);
+        free(input);
 		exit(EXIT_SUCCESS);
 	}
 	pid = fork();
