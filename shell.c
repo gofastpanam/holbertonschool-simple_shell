@@ -45,6 +45,7 @@ void interactive_mode(void)
 
 /**
 * non_interactive_mode - Run the shell in non-interactive mode
+* @command: The command to execute
 */
 void non_interactive_mode(void)
 {
@@ -69,9 +70,13 @@ int run_command(char *input)
 {
 	pid_t pid;
 	int status;
+
 	char *argv[64];
+
 	char *token;
+
 	int argc = 0;
+
 	char path[256];
 
 	token = strtok(input, " ");
@@ -82,7 +87,9 @@ int run_command(char *input)
 	}
 	argv[argc] = NULL;
 	if (argc > 0 && strcmp(argv[0], "exit") == 0)
+	{
 		exit(EXIT_SUCCESS);
+	}
 	pid = fork();
 	if (pid == -1)
 	{
@@ -92,8 +99,10 @@ int run_command(char *input)
 	else if (pid == 0)
 	{
 		if (getenv("PATH") == NULL)
+		{
 			strcpy(path, "/bin:/usr/bin");
 			setenv("PATH", path, 1);
+		}
 		execvp(argv[0], argv);
 		perror("Error");
 		exit(EXIT_FAILURE);
