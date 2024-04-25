@@ -37,7 +37,7 @@ $
 ## Man page
 ```
 .TH man 3 "18 april 2024" "simple_shell man page"
-
+```
 .SH NAME
 hsh - Simple Shell: command line interpreter
 
