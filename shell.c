@@ -140,7 +140,6 @@ int run_command(char *input)
 		}
 		execvp(argv[0], argv);
 		perror("Error");
-		free(input);
 		exit(EXIT_FAILURE);
 	}
 	else
